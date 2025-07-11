@@ -1,0 +1,39 @@
+  {
+    "fullName": "raja shekar reddy",
+    "dateOfBirth": "1996-09-27",
+    "address": {
+      "address1": {
+        "houseNo": "12B",
+        "streetName": "MG Road",
+        "locality": "Koramangala",
+        "town": "Hosur",
+        "district": "Bengaluru Urban",
+        "state": "Karnataka",
+        "pinCode": "560034",
+        "country": "India"
+      },
+      "address2": {
+        "houseNo": "12B",
+        "streetName": "MG Road",
+        "locality": "Koramangala",
+        "town": "Hosur",
+        "district": "Bengaluru Urban",
+        "state": "Karnataka",
+        "pinCode": "560034",
+        "country": "India"
+      }
+    },
+    "contactDetails": {
+      "mobileNumber": "+91-9827382638",
+      "alternateNumber": "+91-9827382638",
+      "landlineNumber": "080-98926827",
+      "emailId": "rajshekar@gmail.com",
+      "emergencyContact": {
+        "name": "rangaswamy reddy",
+        "relation": "father",
+        "contactNumber": "+91-7278789279"
+      }
+    },
+    "aadharNumber": "0927-2719-7291",
+    "panNumber": "QWERT2321E"
+  }

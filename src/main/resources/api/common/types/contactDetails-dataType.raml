@@ -1,0 +1,25 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  mobileNumber:
+    type: string
+    required: true
+    pattern: '^(\+91[-\s]?)?[6-9]\d{9}$'
+    example: "+91-9827382638"
+  alternateNumber:
+    type: string
+    required: false
+    pattern: '^(\+91[-\s]?)?[6-9]\d{9}$'
+    example: "+91-9827382638"
+  landlineNumber:
+    type: string
+    required: false
+    pattern: '^080-\d{8}$'
+    example: "080-98926827"
+  emailId:
+    type: string
+    pattern: '^[A-Za-z0-9._+%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    required: true
+    example: "rajshekar12345+%@gmail.com"
+  emergencyContact:
+    type: !include emergency-contact-dataType.raml

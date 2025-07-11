@@ -1,0 +1,94 @@
+#%RAML 1.0
+title: securityApplication_Api
+description: "this applies OAuth 2.0 security future to the APi which allows only authorized users to acces the API"
+version: v1
+baseUri: "https://Example-banking-security/version"
+mediaType: 
+- application/json
+
+uses:
+  common: /retrieve/traits/business-library.raml
+
+types:
+  create-account: !include /common/types/create-account-dataType.raml
+  201-response: !include /create/datatype/201-response-dataType.raml
+  
+  200-response: !include /common/types/200-response-dataType.raml
+
+
+  
+securitySchemes:
+  OAuth_2_0:
+    description: example of oauth_2_0 security future to protect from unautharized users
+    type: OAuth 2.0
+    describedBy:
+      headers:
+        Authorization: 
+          description: | 
+            used to send a valid OAuth 2 access toke code
+        type: string
+      responses:
+        401:
+          description: |
+            Unauthorize, access token is missing or incorrect
+    settings:
+      authorizationUri: https://auth.example.com/oauth/authorize
+      accessTokenUri: https://auth.example.com/oauth/token
+      authorizationGrants: [ authorization_code refresh_token ]
+     
+/newAccount:
+  post:
+    # securedBy: [OAuth_2_0] 
+    body:
+      application/json:
+        type: create-account
+        example: !include /create/example/createAccount_response_example.json                    
+    responses:
+      201:
+        body:
+          application/json:
+            type: 201-response
+            example: !include /create/example/201-response-example.json
+    
+      400:
+          body:
+            application/json:
+                type: !include /common/datatype/common-error-dataType.raml
+                example: !include /common/example/400-response-example.json
+      404:
+        body:
+          application/json:
+              type: !include /common/datatype/common-error-dataType.raml
+              example: !include /common/example/404-response-example.json
+      500:
+        body:
+          application/json:
+              type: !include /common/datatype/common-error-dataType.raml
+              example: !include /common/example/500-response-example.json
+      
+
+  get:
+    securedBy: [OAuth_2_0]
+    is:
+      - common.accountNumber
+    responses:
+      200:
+        body:
+          application/json:
+            type: 200-response
+            example: !include /retrieve/example/200-response-example.json
+      400:
+          body:
+            application/json:
+              type: !include /common/datatype/common-error-dataType.raml
+              example: !include /common/example/400-response-example.json
+      404:
+        body:
+          application/json:
+            type: !include /common/datatype/common-error-dataType.raml
+            example: !include /common/example/404-response-example.json
+      500:
+        body:
+          application/json:
+            type: !include /common/datatype/common-error-dataType.raml
+            example: !include /common/example/500-response-example.json

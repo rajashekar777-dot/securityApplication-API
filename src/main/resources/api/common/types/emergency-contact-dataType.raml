@@ -1,0 +1,15 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  name:
+    type: string
+    required: true
+    example: "rangaswamy reddy"
+  relation: 
+    type: string
+    required: true
+    example: "father"
+  contactNumber:
+    type: string
+    pattern: '^(\+91[-\s]?)?[6-9]\d{9}$'
+    example: "+91-7278789279"

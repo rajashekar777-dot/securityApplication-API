@@ -1,0 +1,38 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  houseNo:
+    type: string
+    description: House number
+    example: "12B"
+  streetName:
+    type: string
+    description: Street name or road
+    example: "MG Road"
+  locality:
+    type: string
+    description: Locality or residential area
+    example: "Koramangala"
+  town:
+    type: string
+    description: Name of the village or town
+    example: "Hosur"
+  district:
+    type: string
+    required: true
+    description: District name
+    example: "Bengaluru Urban"
+  state:
+    type: string
+    description: State name
+    example: "Karnataka"
+  pinCode:
+    type: string
+    required: true
+    description: 6-digit postal code
+    example: "560034"
+  country:
+    type: string
+    required: true
+    description: Country name
+    example: "India"
